@@ -7,21 +7,8 @@ function App() {
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1",
-    },
-    {
-      username: "user2",
-      password: "pass2",
-    },
-  ];
-
   const errors = {
-    err: "invalid username or password",
-    pass: "invalid password",
+    uname: "invalid username",
   };
 
   const handleSubmit = (event) => {
@@ -33,23 +20,23 @@ function App() {
     //post request to server with username and password
     console.log("uname: " + uname.value);
     console.log("pass: " + pass.value);
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: uname.value,
+        username: uname.value,
         password: pass.value,
       }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        if (data.message === "Login Successful") {
+        if (data.message === "User Created Successfully") {
           setIsSubmitted(true);
         } else {
-          setErrorMessages({ name: "uname", message: errors.err });
+          setErrorMessages({ name: "uname", message: errors.uname });
         }
       })
       .catch((error) => {
@@ -105,8 +92,8 @@ function App() {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        <div className="title">Register</div>
+        {isSubmitted ? <div>User is successfully registered</div> : renderForm}
       </div>
     </div>
   );

@@ -43,7 +43,7 @@ app.post("/register", (request, response) => {
     .then((hashedPassword) => {
       // create a new user instance and collect the data
       const user = new User({
-        email: request.body.email,
+        //email: request.body.email,
         username: request.body.username,
         password: hashedPassword,
       });
@@ -78,7 +78,7 @@ app.post("/register", (request, response) => {
 // login endpoint
 app.post("/login", (request, response) => {
   // check if email exists
-  User.findOne({ email: request.body.email })
+  User.findOne({ email: request.body.username })
 
     // if email exists
     .then((user) => {
