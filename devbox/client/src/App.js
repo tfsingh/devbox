@@ -19,9 +19,8 @@ function App() {
     var { uname, pass } = document.forms[0];
 
     //post request to server with username and password
-    console.log("uname: " + uname.value);
-    console.log("pass: " + pass.value);
-    fetch("http://localhost:3000/register", {
+
+    fetch("server-production-fef1.up.railway.app/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

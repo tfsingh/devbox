@@ -53,6 +53,7 @@ app.post("/register", (request, response) => {
         .save()
         // return success if the new user is added to the database successfully
         .then((result) => {
+          /*
           var SSH = require("simple-ssh");
 
           var ssh = new SSH({
@@ -68,11 +69,12 @@ app.post("/register", (request, response) => {
               },
             })
             .start();
+          ssh.end();
+          */
           response.status(201).send({
             message: "User Created Successfully",
             result,
           });
-          ssh.end();
         })
         // catch erroe if the new user wasn't added successfully to the database
         .catch((error) => {
