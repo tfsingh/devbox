@@ -20,11 +20,7 @@ function App() {
 
     //post request to server with username and password
 
-    var url = "";
-    const domain = window.location.origin;
-    url = domain + "server-production-fef1.up.railway.app/register";
-
-    fetch(url, {
+    fetch("https://server-production-fef1.up.railway.app/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
