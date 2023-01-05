@@ -97,12 +97,14 @@ function App() {
         <div className="title">Create a DevBox</div>
         {isSubmitted ? (
           <div>
-            You've registered! Follow this link to setup a remote tunnel to{" "}
-            <br />
+            You've registered! Follow{" "}
+            <a href="https://login.tailscale.com/admin/invite/hiyL9qyjZqg">
+              this
+            </a>
+            {""} link to setup a remote tunnel to <br />
             your server, and then login via ssh using your username. <br />
             <br />
-            ex: ssh {username}@100.72.147.98.
-            <p>https://login.tailscale.com/admin/invite/hiyL9qyjZqg</p>
+            ex: ssh {username}@100.72.147.98
           </div>
         ) : (
           renderForm
