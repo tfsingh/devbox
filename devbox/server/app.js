@@ -43,7 +43,7 @@ app.post("/register", (request, response) => {
     .then((hashedPassword) => {
       // create a new user instance and collect the data
       const user = new User({
-        //email: request.body.email,
+        email: request.body.email,
         username: request.body.username,
         password: hashedPassword,
       });
@@ -74,7 +74,7 @@ app.post("/register", (request, response) => {
       });
     });
 });
-
+/*
 // login endpoint
 app.post("/login", (request, response) => {
   // check if email exists
@@ -129,7 +129,7 @@ app.post("/login", (request, response) => {
       });
     });
 });
-
+*/
 // free endpoint
 app.get("/free-endpoint", (request, response) => {
   response.json({ message: "You are free to access me anytime" });
