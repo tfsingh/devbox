@@ -5,6 +5,7 @@ import "./styles.css";
 function App() {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
+  const [username, setUsername] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const errors = {
@@ -34,6 +35,7 @@ function App() {
       .then((data) => {
         console.log("Success:", data);
         if (data.message === "User Created Successfully") {
+          setUsername(uname.value);
           setIsSubmitted(true);
         } else {
           setErrorMessages({ name: "uname", message: errors.uname });
@@ -92,8 +94,19 @@ function App() {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title">Register</div>
-        {isSubmitted ? <div>User is successfully registered</div> : renderForm}
+        <div className="title">Create a DevBox</div>
+        {isSubmitted ? (
+          <div>
+            You've registered! Follow this link to setup a remote tunnel to{" "}
+            <br />
+            your server, and then login via ssh using your username. <br />
+            <br />
+            ex: ssh {username}@100.72.147.98.
+            <p>https://login.tailscale.com/admin/invite/hiyL9qyjZqg</p>
+          </div>
+        ) : (
+          renderForm
+        )}
       </div>
     </div>
   );
