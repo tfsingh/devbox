@@ -53,24 +53,54 @@ app.post("/register", (request, response) => {
         .save()
         // return success if the new user is added to the database successfully
         .then((result) => {
-          /*
-          var SSH = require("simple-ssh");
+          require("dotenv").config();
+          var Client = require("ssh2").Client;
+          const PASS = process.env.PASSWORD;
 
-          var ssh = new SSH({
-            host: "100.72.147.98",
-            user: "tej",
-            pass: { PASSWORD },
-          });
+          var conn = new Client();
+          conn
+            .on("ready", function () {
+              console.log("Client :: ready");
 
-          ssh
-            .exec("sudo adduser ${username}", {
-              out: function (stdout) {
-                console.log(stdout);
-              },
+              // const cmd = 'uptime';
+              const cmd =
+                "echo " +
+                PASS +
+                " | sudo -S adduser " +
+                request.body.username +
+                "; echo " +
+                PASS +
+                " | echo " +
+                request.body.username +
+                ":" +
+                request.body.password +
+                " | sudo -S chpasswd";
+
+              conn.exec(cmd, function (err, stream) {
+                if (err) throw err;
+                stream
+                  .on("close", function (code, signal) {
+                    console.log(
+                      "SSH Stream :: close :: code: " +
+                        code +
+                        ", signal: " +
+                        signal
+                    );
+                    conn.end();
+                  })
+                  .on("data", function (data) {
+                    console.log("STDOUT: " + data);
+                  })
+                  .stderr.on("data", function (data) {
+                    console.log("STDERR: " + data);
+                  });
+              });
             })
-            .start();
-          ssh.end();
-          */
+            .connect({
+              host: "100.72.147.98",
+              username: "tej",
+              password: process.env.PASSWORD,
+            });
           response.status(201).send({
             message: "User Created Successfully",
             result,

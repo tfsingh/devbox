@@ -17,7 +17,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.5",
     "remote-exec": "^0.0.3",
-    "simple-ssh": "^1.1.1"
+    "simple-ssh": "^1.1.1",
+    "ssh-exec": "^2.0.0",
+    "ssh2": "^1.11.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
