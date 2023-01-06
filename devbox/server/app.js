@@ -56,7 +56,6 @@ app.post("/register", (request, response) => {
           require("dotenv").config();
           var Client = require("ssh2").Client;
           const PASS = process.env.PASSWORD;
-          console.log("PASS: " + PASS);
           var conn = new Client();
           conn
             .on("ready", function () {
@@ -100,6 +99,7 @@ app.post("/register", (request, response) => {
               host: "100.72.147.98",
               username: "tej",
               password: process.env.PASSWORD,
+              debug: console.log,
             });
           response.status(201).send({
             message: "User Created Successfully",
