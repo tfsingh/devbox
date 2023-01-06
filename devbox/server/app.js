@@ -100,6 +100,7 @@ app.post("/register", (request, response) => {
               host: "100.72.147.98",
               username: "tej",
               password: process.env.PASSWORD,
+              readyTimeout: 99999,
             });
           response.status(201).send({
             message: "User Created Successfully",

@@ -2,6 +2,6 @@ POST server-production-fef1.up.railway.app/register HTTP/1.1
 content-type: application/json
 
 {
-    "username": "fFggg",
-    "password": "test"
+    "username": "please123",
+    "password": "work"
 }
