@@ -74,13 +74,13 @@ function App() {
     <div className="form">
       <form onSubmit={handleSubmit}>
         <div className="input-container">
-          <label>Username </label>
-          <input type="text" name="uname" required />
+          <label className="content">Username </label>
+          <input type="text" name="uname" required className="content-2" />
           {renderErrorMessage("uname")}
         </div>
         <div className="input-container">
-          <label>Password </label>
-          <input type="password" name="pass" required />
+          <label className="content">Password </label>
+          <input type="password" name="pass" required className="content-2" />
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
@@ -96,7 +96,7 @@ function App() {
         <div className="title">Create a DevBox</div>
 
         {isSubmitted ? (
-          <div>
+          <div className="content">
             You've registered! Follow{" "}
             <a href="https://login.tailscale.com/admin/invite/hiyL9qyjZqg">
               this

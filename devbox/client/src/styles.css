@@ -54,8 +54,20 @@ input[type="submit"]:hover {
 }
 
 .title {
-  font-size: 25px;
+  font-size: 45px;
   margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-2 {
+  font-size: 18px;
+
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .input-container {
