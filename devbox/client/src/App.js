@@ -94,6 +94,7 @@ function App() {
     <div className="app">
       <div className="login-form">
         <div className="title">Create a DevBox</div>
+
         {isSubmitted ? (
           <div>
             You've registered! Follow{" "}
