@@ -93,7 +93,7 @@ function App() {
   return (
     <div className="app">
       <div className="login-form">
-        <div class="text-3xl">Create a DevBox</div>
+        <div class="text-white">Create a DevBox</div>
 
         {isSubmitted ? (
           <div className="content">
