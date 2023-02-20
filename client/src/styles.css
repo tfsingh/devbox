@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-background font-sans text-white;
+  }
+  div {
+    @apply bg-background font-sans text-white;
+  }
+  input {
+    @apply font-sans text-black;
+  }
+}

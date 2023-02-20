@@ -13,13 +13,12 @@ function App() {
   };
 
   const handleSubmit = (event) => {
-    //Prevent page reload
+    // Prevent page reload
     event.preventDefault();
 
     var { uname, pass } = document.forms[0];
 
-    //post request to server with username and password
-
+    // Post request to server with username and password
     fetch("http://localhost:3000/register", {
       method: "POST",
       headers: {
@@ -43,24 +42,6 @@ function App() {
       .catch((error) => {
         console.error("Error:", error);
       });
-
-    /*
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
-
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
-    */
   };
 
   // Generate JSX code for error message
@@ -90,25 +71,46 @@ function App() {
     </div>
   );
 
-  return (
-    <div className="app">
-      <div className="login-form">
-        <div class="text-white">Create a DevBox</div>
+  /*
+  
+    */
 
-        {isSubmitted ? (
-          <div className="content">
-            You've registered! Follow{" "}
-            <a href="https://login.tailscale.com/admin/invite/hiyL9qyjZqg">
-              this
-            </a>
-            {""} link to setup a remote tunnel to <br />
-            your server, and then login via ssh using your username. <br />
-            <br />
-            ex: ssh {username}@100.72.147.98
+  return (
+    <div className="">
+      <div className="grid justify-center ">
+        <h1 className="pt-32 tracking-tight text-center font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600 max-w-5xl">
+          Instantaneous, always on Dev Environments
+        </h1>
+
+        <div className="relative">
+          <div className="absolute top-10 left-20 max-w-md text-xl md:max-w[460px] text-gray-300">
+            <p>
+              <code>DevBox</code> lets you spin-up a remote linux environment in
+              seconds.
+            </p>
+            <p>It's always on, and you can access it from anywhere.</p>
+            <p>
+              Use <code>DevBox</code> for testing and development, or to share a
+              dev environment with your team.
+            </p>
           </div>
-        ) : (
-          renderForm
-        )}
+          <div className="absolute top-10 right-20``">
+            {isSubmitted ? (
+              <div>
+                You've registered! Follow{" "}
+                <a href="https://login.tailscale.com/admin/invite/hiyL9qyjZqg">
+                  this
+                </a>
+                {""} link to setup a remote tunnel to <br />
+                your server, and then login via ssh using your username. <br />
+                <br />
+                ex: ssh {username}@100.72.147.98
+              </div>
+            ) : (
+              renderForm
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
