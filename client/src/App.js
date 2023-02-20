@@ -98,45 +98,43 @@ function App() {
   );
 
   return (
-    <div className="">
-      <div className="grid justify-center">
-        <h1 className="pt-32 tracking-tight text-center font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600 max-w-5xl">
-          Instantaneous, always on Dev Environments
-        </h1>
+    <div className="grid justify-center">
+      <h1 className="pt-32 tracking-tight text-center font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600 max-w-5xl">
+        Instantaneous, always on Dev Environments
+      </h1>
 
-        <div className="relative">
-          <div className="absolute top-10 left-20 max-w-md text-xl md:max-w[460px] ">
-            <p>
-              <code>DevBox</code> lets you spin-up a remote linux environment in
-              seconds.
-            </p>
-            <p>Admin privileges, always on, and access it from anywhere.</p>
-            <p>
-              Use <code>DevBox</code> for testing and development, or to share a
-              dev environment with your team.
-            </p>
-          </div>
-          <div className="absolute top-10 right-8 max-w-md text-xl md:max-w[460px]">
-            {isSubmitted ? (
-              <div>
-                <p>You've registered!</p>
-                <p>
-                  Follow{" "}
-                  <a
-                    href="https://login.tailscale.com/admin/invite/hiyL9qyjZqg"
-                    className="text-pink-600"
-                  >
-                    this
-                  </a>
-                  {""} link to setup a remote tunnel to your server, and then
-                  login via ssh using your username.
-                </p>
-                <p>ex: ssh {username}@100.72.147.98</p>
-              </div>
-            ) : (
-              renderForm
-            )}
-          </div>
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-3xl mx-auto top-10">
+        <div className="text-xl md:col-start-1 max-w-sm">
+          <p>
+            <code>DevBox</code> lets you spin-up a remote linux environment in
+            seconds.
+          </p>
+          <p>Admin privileges, always on, and access it from anywhere.</p>
+          <p>
+            Use <code>DevBox</code> for testing and development, or to share a
+            dev environment with your team.
+          </p>
+        </div>
+        <div className="text-xl md:col-start-2 max-w-s">
+          {isSubmitted ? (
+            <div>
+              <p>You've registered!</p>
+              <p>
+                Follow{" "}
+                <a
+                  href="https://login.tailscale.com/admin/invite/hiyL9qyjZqg"
+                  className="text-pink-600"
+                >
+                  this
+                </a>{" "}
+                link to setup a remote tunnel to your server, and then login via
+                ssh using your username.
+              </p>
+              <p>ex: ssh {username}@100.72.147.98</p>
+            </div>
+          ) : (
+            renderForm
+          )}
         </div>
       </div>
     </div>
