@@ -17,7 +17,7 @@ function App() {
     event.preventDefault();
 
     var { uname, pass } = document.forms[0];
-
+    console.log(uname.value, pass.value);
     // Post request to server with username and password
     fetch("http://localhost:3000/register", {
       method: "POST",
@@ -52,59 +52,86 @@ function App() {
 
   // JSX code for login form
   const renderForm = (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label className="content">Username </label>
-          <input type="text" name="uname" required className="content-2" />
-          {renderErrorMessage("uname")}
+    <div className="">
+      <form
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        onSubmit={handleSubmit}
+      >
+        <div className="mb-4 bg-white">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Username
+            {renderErrorMessage("uname")}
+          </label>
+          <input
+            className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username"
+            type="text"
+            placeholder="johndoe"
+            name="uname"
+            required
+          />
         </div>
-        <div className="input-container">
-          <label className="content">Password </label>
-          <input type="password" name="pass" required className="content-2" />
-          {renderErrorMessage("pass")}
+        <div className="mb-2 bg-white ">
+          <label className="bg-white block text-gray-700 text-sm font-bold mb-2">
+            Password
+          </label>
+          <input
+            className=" appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            id="password"
+            type="password"
+            placeholder="*********"
+            name="pass"
+            required
+          />
         </div>
-        <div className="button-container">
-          <input type="submit" />
+
+        <div className="flex bg-white items-center justify-between">
+          <button
+            className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+          >
+            <input type="submit" />
+          </button>
         </div>
       </form>
     </div>
   );
 
-  /*
-  
-    */
-
   return (
     <div className="">
-      <div className="grid justify-center ">
+      <div className="grid justify-center">
         <h1 className="pt-32 tracking-tight text-center font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600 max-w-5xl">
           Instantaneous, always on Dev Environments
         </h1>
 
         <div className="relative">
-          <div className="absolute top-10 left-20 max-w-md text-xl md:max-w[460px] text-gray-300">
+          <div className="absolute top-10 left-20 max-w-md text-xl md:max-w[460px] ">
             <p>
               <code>DevBox</code> lets you spin-up a remote linux environment in
               seconds.
             </p>
-            <p>It's always on, and you can access it from anywhere.</p>
+            <p>Admin privileges, always on, and access it from anywhere.</p>
             <p>
               Use <code>DevBox</code> for testing and development, or to share a
               dev environment with your team.
             </p>
           </div>
-          <div className="absolute top-10 right-20``">
+          <div className="absolute top-10 right-8 max-w-md text-xl md:max-w[460px]">
             {isSubmitted ? (
               <div>
-                You've registered! Follow{" "}
-                <a href="https://login.tailscale.com/admin/invite/hiyL9qyjZqg">
-                  this
-                </a>
-                {""} link to setup a remote tunnel to <br />
-                your server, and then login via ssh using your username. <br />
-                <br />
-                ex: ssh {username}@100.72.147.98
+                <p>You've registered!</p>
+                <p>
+                  Follow{" "}
+                  <a
+                    href="https://login.tailscale.com/admin/invite/hiyL9qyjZqg"
+                    className="text-pink-600"
+                  >
+                    this
+                  </a>
+                  {""} link to setup a remote tunnel to your server, and then
+                  login via ssh using your username.
+                </p>
+                <p>ex: ssh {username}@100.72.147.98</p>
               </div>
             ) : (
               renderForm

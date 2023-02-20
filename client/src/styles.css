@@ -9,7 +9,4 @@
   div {
     @apply bg-background font-sans text-white;
   }
-  input {
-    @apply font-sans text-black;
-  }
 }
