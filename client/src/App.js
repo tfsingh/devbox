@@ -102,14 +102,13 @@ function App() {
       <h1 className="pt-32 tracking-tight text-center font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600 max-w-5xl">
         Instantaneous, always on Dev Environments
       </h1>
-
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-3xl mx-auto top-10">
         <div className="text-xl md:col-start-1 max-w-sm">
           <p>
             <code>DevBox</code> lets you spin-up a remote linux environment in
             seconds.
           </p>
-          <p>Admin privileges, always on, and access it from anywhere.</p>
+          <p>Admin privileges, always on, and access from anywhere.</p>
           <p>
             Use <code>DevBox</code> for testing and development, or to share a
             dev environment with your team.
