@@ -76,7 +76,7 @@ app.post("/register", (request, response) => {
                 " | sudo -S chpasswd";
 
               conn.exec(cmd, function (err, stream) {
-                if (err) throw err;
+                if (err) return;
                 stream
                   .on("close", function (code, signal) {
                     console.log(

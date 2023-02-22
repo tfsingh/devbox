@@ -9,7 +9,8 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const errors = {
-    uname: "invalid username",
+    uname: "Username in use",
+    unameSpace: "Username cannot contain spaces",
   };
 
   const handleSubmit = (event) => {
@@ -17,9 +18,13 @@ function App() {
     event.preventDefault();
 
     var { uname, pass } = document.forms[0];
-    console.log(uname.value, pass.value);
+    // display error message if uname has spaces
+    if (uname.value.includes(" ")) {
+      setErrorMessages({ name: "uname", message: errors.unameSpace });
+      return;
+    }
     // Post request to server with username and password
-    fetch("http://localhost:3000/register", {
+    fetch("http://34.229.184.110:3000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +36,7 @@ function App() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
+        // console.log("Success:", data);
         if (data.message === "User Created Successfully") {
           setUsername(uname.value);
           setIsSubmitted(true);
@@ -40,7 +45,7 @@ function App() {
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        // console.error("Error:", error);
       });
   };
 
