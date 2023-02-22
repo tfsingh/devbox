@@ -24,7 +24,7 @@ function App() {
       return;
     }
     // Post request to server with username and password
-    fetch("http://34.229.184.110:3000/register", {
+    fetch("https://34.229.184.110:3000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
