@@ -104,3 +104,8 @@ dist
 .tern-port
 
 test.js
+
+
+cert.pem
+csr.pem
+key.pem
